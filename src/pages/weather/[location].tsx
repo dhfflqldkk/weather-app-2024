@@ -32,8 +32,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if (forecastRes.ok) {
     const forecastData = await forecastRes.json();
     sixDayForecast = forecastData.list
-      .filter((_, index) => index % 8 === 0)
-      .slice(0, 6);
+    .filter((_item: any, index: number) => index % 8 === 0)
+    .slice(0, 6);
   } else {
     return { notFound: true };
   }
